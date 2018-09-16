@@ -1,3 +1,6 @@
+<?php
+require_once 'connection.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,11 +138,18 @@
   <div class="col-sm-9">
     <span>
       <ul class="pricing-list">
-        <li><strong>1 sharing:</strong> Kshs. 8,500 per month</li>
-        <li><strong>2 sharing:</strong> Kshs. 7,500 per month</li>
-        <li><strong>3 sharing:</strong> Kshs. 7,000 per month</li>
-        <li><strong>4 sharing:</strong> Kshs. 6,500 per month</li>
-        <li><strong>1 sharing:</strong> Kshs. 6,000 per month</li>
+        <?php
+        $connection = new mysqli('localhost', 'root', '', 'hostel99');
+        $query = $connection->query("SELECT * FROM hostel WHERE status = 1");
+        if($query->num_rows > 0){ 
+            while($row = $query->fetch_assoc()){
+              ?>
+        <li><strong><?php echo $row['hostel_name']; ?>:</strong> Kshs. <?php echo $row['unitprice']?> per month
+      <a href="cartAction.php?action=addToCart&id=<?php echo $row['hostel_id']?>" style="margin-left:350px;margin-bottom:5px;" class="btn btn-success"><i class="fas fa-bookmark"></i> Book this hostel</a>
+        </li>
+        <?php } }else{ ?>
+        <p>Product(s) not found.....</p>
+        <?php } ?>
       </ul>
     </span>
   </div>
