@@ -17,13 +17,11 @@ $token = $params = NULL;
 PesaPal Sandbox is at http://demo.pesapal.com. Use this to test your developement and 
 when you are ready to go live change to https://www.pesapal.com.
 */
-$consumer_key = 'iQAtG/rJKzcwE4LleWyGIWVxstqUBP47';
-                   //'t7ULffCf9h25Yns972SG6V/UfKpaFIuV';//Register a merchant account on
+$consumer_key = 'iQAtG/rJKzcwE4LleWyGIWVxstqUBP47';//Register a merchant account on
                    //demo.pesapal.com and use the merchant key for testing.
                    //When you are ready to go live make sure you change the key to the live account
                    //registered on www.pesapal.com!
-$consumer_secret = 'jy+39m7Q5S/qgOOGlkuhJObsXVA=';
-                   //'sSeyXIUQtKvwBZpNUxH2GgMZfTQ=';// Use the secret from your test
+$consumer_secret = 'jy+39m7Q5S/qgOOGlkuhJObsXVA=';// Use the secret from your test
                    //account on demo.pesapal.com. When you are ready to go live make sure you 
                    //change the secret to the live account registered on www.pesapal.com!
 $signature_method = new OAuthSignatureMethod_HMAC_SHA1();
